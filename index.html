@@ -7,80 +7,72 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>영민을 위한 랜덤점심 메뉴 💕</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: #f5f7fa;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100px;
-    }
-    .card {
-      background: white;
-      padding: 30px;
-      border-radius: 12px;
-      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-      text-align: center;
-      width: 300px;
-      max-width: 90px; 
-    }
-    h1 {
-      font-size: 20px;
-      margin-bottom: 20px;
-    }
-    #menu {
-      font-size: 22px;
-      font-weight: bold;
-      margin: 20px 0;
-      color: #2c3e50;
-    }
-    button {
-      padding: 10px 20px;
-      font-size: 16px;
-      border: none;
-      border-radius: 8px;
-      background: #4f46e5;
-      color: white;
-      cursor: pointer;
-    }
-    button:hover {
-      background: #4338ca;
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>영민을 위한 랜덤점심 메뉴</title>
+<style>
+  body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+  }
+
+  h1 {
+    margin-bottom: 30px;
+    font-size: 24px;
+    color: #333;
+  }
+
+  #menuButton {
+    width: 114px;  /* 약 3cm */
+    height: 114px; /* 약 3cm */
+    font-size: 16px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+    cursor: pointer;
+    transition: transform 0.1s;
+  }
+
+  #menuButton:active {
+    transform: translateY(3px); /* 높이 3px 눌리는 느낌 */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  }
+
+  #result {
+    margin-top: 20px;
+    font-size: 20px;
+    color: #555;
+  }
+</style>
 </head>
 <body>
-  <div class="card">
-    <h1> 점심 맛난거 먹어 </h1>
-    <div id="menu">버튼을 눌러봐 🍽️</div>
-    <button onclick="pickMenu()">랜덤 추천</button>
-  </div>
 
-  <script>
-    const menus = [
-      '김치찌개',
-      '된장찌개',
-      '순두부찌개',
-      '비빔밥',
-      '불고기',
-      '돈까스',
-      '만두국',
-      '샤브샤브',
-      '짬뽕',
-      '짜장면',
-      '초밥',
-      '햄버거',
-      '파스타',
-      '샐러드'
-    ];
+<h1>영민을 위한 랜덤 점심 메뉴</h1>
+<button id="menuButton">점심 추천!</button>
+<div id="result"></div>
 
-    function pickMenu() {
-      const randomIndex = Math.floor(Math.random() * menus.length);
-      document.getElementById('menu').textContent = menus[randomIndex];
-    }
-  </script>
+<script>
+  const menus = [
+    "김치찌개", "된장찌개", "제육볶음", "치킨", "피자", 
+    "햄버거", "샌드위치", "초밥", "라면", "비빔밥", "순두부찌개", "샤브샤브"
+  ];
+
+  const button = document.getElementById('menuButton');
+  const result = document.getElementById('result');
+
+  button.addEventListener('click', () => {
+    const randomIndex = Math.floor(Math.random() * menus.length);
+    result.textContent = menus[randomIndex];
+  });
+</script>
+
 </body>
 </html>
+
